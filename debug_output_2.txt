@@ -1,0 +1,12 @@
+[Filmes Library Search] TotalRecordCount: 11, Returned: 11
+ - Alta Frequência (Movie)
+ - Amor de Aluguel (Movie)
+ - Até que a Fuga os Separe (Movie)
+ - Chá com Mussolini (Movie)
+ - De Que Planeta Você Veio? (Movie)
+ - Ghost Dog - Caçador Implacável (Movie)
+ - A História de Nós Dois (Movie)
+ - Hurricane: O Furacão (Movie)
+ - O Pequeno Stuart Little (Movie)
+ - O Sobrevivente (Movie)
+ - Truque de Mestre: O 3° Ato (Movie)

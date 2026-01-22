@@ -1,0 +1,389 @@
+.movie-card {
+    width: 250px;
+    height: 140px;
+    background-color: #202020;
+    margin-right: 10px;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg)) scale3d(var(--scale, 1), var(--scale, 1), 1);
+}
+
+.movie-card:hover {
+    z-index: 2100;
+    --scale: 1.02;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.movie-card>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    /* Fixes bottom gap caused by inline baseline */
+}
+
+/* Card Overlay (Mobile & Top 10 Hover) */
+.movie-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 10px 10px;
+    z-index: 5;
+    display: none;
+    /* Hidden on desktop by default */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.mobile-title-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+    z-index: -1;
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.overlay-title {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 710;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.overlay-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Push items to edges */
+    width: 100%;
+    gap: 8px;
+    /* Fallback gap */
+    font-size: 0.7rem;
+    color: #ddd;
+    font-weight: 600;
+}
+
+.overlay-match {
+    color: var(--color-primary, #46d369);
+}
+
+.overlay-rating {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0 4px;
+    border-radius: 2px;
+    font-size: 0.65rem;
+}
+
+.overlay-progress-container {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.overlay-progress-bar {
+    height: 100%;
+    background-color: var(--color-primary, #46d369);
+}
+
+/* Static Title/Logo Overlay (Pre-hover) */
+.card-static-title-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 12px 12px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 100%);
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.card-logo {
+    max-width: 85%;
+    max-height: 45px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.card-static-title {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 750;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+/* Hover Effect - Netflix Style Expansion */
+.movie-card-info {
+    position: absolute;
+    top: -60px;
+    /* Moves higher up to center the expansion somewhat */
+    left: 50%;
+    transform: translateX(-50%) scale(1.02);
+    /* Slight scale on the container itself */
+    width: 140%;
+    /* Wider than the original card */
+    min-width: 300px;
+    /* Minimum width for info */
+    background-color: #181818;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+    z-index: 2200;
+    overflow: hidden;
+    animation: fadeIn 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    /* Smooth easeOutCubic */
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.movie-card-image-wrapper {
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    position: relative;
+    background: #000;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.movie-card-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-preview-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    /* User can't interact with YouTube directly */
+    z-index: 10;
+}
+
+.video-preview-wrapper iframe {
+    width: 140%;
+    /* Zoom in slightly to cut off potential black bars or UI edges */
+    height: 140%;
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.card-progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 20;
+}
+
+.card-progress-bar {
+    height: 100%;
+    background-color: var(--color-primary, #46d369);
+    transition: width 0.3s ease;
+}
+
+.movie-details {
+    padding: 12px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: center;
+    position: relative;
+}
+
+.movie-action-arrow {
+    margin-left: auto;
+    /* Push to right */
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.movie-action-arrow:hover {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    /* Thicker border */
+    background: rgba(42, 42, 42, 0.6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    /* Larger icon */
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.btn-icon:hover {
+    border-color: white;
+    background: white;
+    color: black;
+}
+
+.btn-icon.play {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.btn-icon.favorite {
+    border-color: #46d369;
+    color: #46d369;
+}
+
+.btn-icon.favorite:hover {
+    background: #46d369;
+    color: white;
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.quality {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 0.7rem;
+    color: #ddd;
+}
+
+.match {
+    color: #46d369;
+}
+
+.year {
+    color: #fff;
+    font-weight: 600;
+}
+
+.age {
+    border: 1px solid #a3a3a3;
+    padding: 0 4px;
+}
+
+.movie-genres ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0;
+    list-style: none;
+}
+
+.movie-genres li {
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+.movie-genres li:not(:last-child)::after {
+    content: "•";
+    margin-left: 6px;
+    color: #666;
+}
+
+/* Mobile & Narrow Screens Cleanup */
+@media (max-width: 768px) {
+    .movie-card-info {
+        display: none !important;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.02);
+        /* Very subtle scale on narrow screens */
+        z-index: 10;
+    }
+
+    .movie-card-overlay {
+        display: flex;
+        /* Show on mobile */
+    }
+
+    .movie-card:hover {
+        transform: scale(1.02);
+        /* Very subtle scale on narrow screens */
+        z-index: 10;
+    }
+}

@@ -1,0 +1,121 @@
+.section-row {
+    margin-bottom: -50px;
+    /* Reduced overlap for better row separation */
+    position: relative;
+    z-index: 20;
+    transition: z-index 0.3s;
+}
+
+.section-row:hover {
+    z-index: 100;
+}
+
+.section-row:hover .handle {
+    opacity: 1;
+}
+
+.section-title {
+    margin-left: var(--spacing-xxl);
+    margin-bottom: 0;
+    /* Let row-items pull itself up */
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    position: relative;
+    z-index: 21;
+    /* Above the row content */
+    pointer-events: none;
+    /* Allow clicks to pass through if needed */
+}
+
+.section-title:hover {
+    color: var(--color-primary-hover);
+}
+
+.row-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.row-items {
+    display: flex;
+    overflow-x: auto;
+    /* Standardize overflow */
+    overflow-y: visible;
+    /* ensure hover content shows */
+    scrollbar-width: none;
+    padding: 80px var(--spacing-xxl) 150px var(--spacing-xxl);
+    /* Increased Space for hover: 80px top, 150px bottom */
+    margin: -60px 0 0 0;
+    /* Adjusted margin to balance new padding */
+    scroll-behavior: smooth;
+}
+
+.row-items::-webkit-scrollbar {
+    display: none;
+}
+
+/* Scroll Handles (Scoped to SectionRow) */
+.section-row .handle {
+    position: absolute;
+    top: calc(50% - 60px);
+    /* Manually tuned for backdrop cards layout */
+    transform: translateY(-50%);
+    height: 100px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    color: white;
+    opacity: 0;
+    /* Hidden by default */
+    transition: background-color 0.2s, transform 0.2s, opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-row .handle:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.section-row .handle-left {
+    left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.section-row .handle-right {
+    right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.section-row .arrow {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        margin-left: 16px;
+        font-size: 1rem;
+    }
+
+    .row-items {
+        padding: 40px 16px 100px 16px;
+        margin-top: -20px;
+    }
+
+    .section-row {
+        margin-bottom: -40px;
+        /* Adjust overlap for mobile */
+    }
+
+    .section-row .handle {
+        display: none !important;
+    }
+}

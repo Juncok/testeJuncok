@@ -1,0 +1,14 @@
+{
+    "appId": "com.juncok.streams",
+    "appName": "Juncok Streams",
+    "webDir": "dist",
+    "server": {
+        "androidScheme": "https",
+        "cleartext": true
+    },
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 0
+        }
+    }
+}

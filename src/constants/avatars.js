@@ -1,0 +1,18 @@
+export const AVATARS = [
+    { id: 1, url: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Nolan' },
+    { id: 2, url: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Brooklynn' },
+    { id: 3, url: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Christian' },
+    { id: 4, url: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Caleb' },
+    { id: 5, url: 'https://api.dicebear.com/9.x/big-smile/svg?seed=Nolan' },
+    { id: 6, url: 'https://api.dicebear.com/9.x/big-smile/svg?seed=Brooklynn' },
+    { id: 7, url: 'https://api.dicebear.com/9.x/big-smile/svg?seed=Christian' },
+    { id: 8, url: 'https://api.dicebear.com/9.x/big-smile/svg?seed=Caleb' },
+    { id: 9, url: 'https://api.dicebear.com/9.x/bottts/svg?seed=Nolan' },
+    { id: 10, url: 'https://api.dicebear.com/9.x/bottts/svg?seed=Brooklynn' },
+    { id: 11, url: 'https://api.dicebear.com/9.x/bottts/svg?seed=Christian' },
+    { id: 12, url: 'https://api.dicebear.com/9.x/bottts/svg?seed=Oliver' },
+    { id: 13, url: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Nolan' },
+    { id: 14, url: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Brooklynn' },
+    { id: 15, url: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Aidan' },
+    { id: 16, url: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Oliver' },
+];

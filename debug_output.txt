@@ -1,0 +1,14 @@
+[Libraries] TotalRecordCount: 2, Returned: 2
+ - Filmes (Folder) [ID: c9c75142a975f6bfacb2139a0ab7cad7]
+ - Playlists (ManualPlaylistsFolder) [ID: 1071671e7bffa0532e930debee501d2e]
+[Global Search] TotalRecordCount: 10, Returned: 10
+ - De Que Planeta Você Veio? (Movie) [ID: 7ccfd89694c12b17d0a71760d3741feb]
+ - Alta Frequência (Movie) [ID: a82c89f9c04469dbe829132c24fe38d3]
+ - Hurricane: O Furacão (Movie) [ID: 8d7b2932ee611825a78d408369475637]
+ - Até que a Fuga os Separe (Movie) [ID: 1f69aefa3734be3f5d79dfd2fc75713b]
+ - Ghost Dog - Caçador Implacável (Movie) [ID: 81ea0822dc9662b3f3494116c58172d3]
+ - A História de Nós Dois (Movie) [ID: 71e56c013ad55fbebfdadaaf2313dfab]
+ - O Pequeno Stuart Little (Movie) [ID: a0ef5b76d22f63852bd10c2ef89fc550]
+ - Truque de Mestre: O 3° Ato (Movie) [ID: 2e9a8aff0f144a0a2a439001d3363a99]
+ - Amor de Aluguel (Movie) [ID: 48f279793e3a1fda7750671c094f79be]
+ - O Sobrevivente (Movie) [ID: 3f7e0499f9f95cb1ddb4bddb3236ac38]

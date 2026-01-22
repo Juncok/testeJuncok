@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Juncok Streams</string>
+    <string name="title_activity_main">Juncok Streams</string>
+    <string name="package_name">com.juncok.streams</string>
+    <string name="custom_url_scheme">com.juncok.streams</string>
+</resources>

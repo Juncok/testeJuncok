@@ -1,0 +1,444 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(0);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #181818;
+    width: 90%;
+    max-width: 950px;
+    margin: auto 0;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease-out;
+    transform-origin: center center;
+    margin-bottom: 50px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #181818;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.modal-hero {
+    position: relative;
+    width: 100%;
+}
+
+.modal-backdrop {
+    width: 100%;
+    height: 480px;
+    position: relative;
+}
+
+.modal-backdrop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #181818 0%, transparent 60%);
+}
+
+.modal-info {
+    padding: 0 48px 40px;
+    position: relative;
+    top: -120px;
+    margin-bottom: -120px;
+}
+
+.modal-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.1;
+    color: white;
+    /* Force white color */
+}
+
+.modal-logo {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.modal-meta-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+}
+
+.modal-meta-row .match {
+    color: #46d369;
+}
+
+.modal-meta-row .age {
+    border: 1px solid #666;
+    padding: 0 4px;
+    font-size: 0.85rem;
+    border-radius: 3px;
+}
+
+.modal-meta-row .genre {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .modal-meta-row .genre {
+        width: 100%;
+        /* Force new line */
+        margin-top: 5px;
+        color: #aaa;
+        /* Slightly dimmer for separation */
+        font-size: 0.9rem;
+    }
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-play {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.btn-play svg {
+    margin-right: 5px;
+}
+
+.btn-play:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+}
+
+.btn-add {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-add svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-add:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+.btn-add.is-favorite {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-primary);
+}
+
+.btn-restart {
+    background: rgba(109, 109, 110, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    transform: translateZ(0);
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.btn-restart:hover {
+    background: rgba(109, 109, 110, 0.9);
+    transform: scale(1.02);
+}
+
+.modal-description-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.description-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white;
+}
+
+.details-col {
+    font-size: 0.95rem;
+}
+
+.details-col p {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: #dadada;
+}
+
+.details-col .label {
+    color: #777;
+}
+
+.modal-similar-section {
+    padding: 20px 48px 40px;
+    margin-top: 0;
+    border-top: 1px solid #333;
+}
+
+.modal-similar-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.similar-grid .movie-card {
+    width: 100%;
+    max-width: 300px;
+}
+
+@media (max-width: 1024px) {
+    .similar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-overlay {
+        align-items: flex-start;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    .modal-content {
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: 12px;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+        top: 0;
+        transform: none;
+    }
+
+    .modal-backdrop {
+        height: 300px;
+    }
+
+    .modal-backdrop img {
+        border-radius: 12px 12px 0 0;
+    }
+
+    /* Restore gradient for smooth blend */
+    .modal-gradient {
+        display: block;
+        background: linear-gradient(to top, #181818 10%, transparent 100%);
+    }
+
+    .modal-info {
+        top: -60px;
+        /* Pull up to overlap gradient */
+        margin-bottom: -60px;
+        background-color: transparent;
+        /* Transparent so gradient shows through behind info */
+        padding-top: 0;
+    }
+
+    .modal-similar-section {
+        background-color: #181818;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        /* Ensure it stays above backdrop */
+    }
+
+    .modal-logo {
+        width: 150px;
+        /* Half size */
+        margin-bottom: 15px;
+    }
+
+    .modal-info,
+    .modal-similar-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Reduce title size on mobile */
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .similar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .similar-grid .movie-card {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Mobile Progress Bar Full Width */
+    .modal-progress-wrapper {
+        width: 100% !important;
+    }
+
+    /* Smaller Metadata Fonts */
+    .modal-meta-row {
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+
+    /* Button Layout: Wrap and size adjustments */
+    .modal-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn-play,
+    .btn-restart,
+    .btn-add {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+        flex: 1;
+        /* Share space */
+        justify-content: center;
+    }
+
+    /* Force Minha Lista (btn-add) to new line */
+    .btn-add {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+
+/* Progress Bar in Modal */
+.modal-progress-wrapper {
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+.modal-progress-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.modal-progress-fill {
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+.modal-progress-text {
+    font-size: 0.9rem;
+    color: #46d369;
+    /* Match color */
+    font-weight: 600;
+}

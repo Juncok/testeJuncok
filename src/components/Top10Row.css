@@ -1,0 +1,193 @@
+/* Top 10 Row Styling */
+.top10-row {
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: -40px;
+    z-index: 20;
+}
+
+.top10-row:hover .handle {
+    opacity: 1;
+}
+
+.top10-row .section-title {
+    margin-left: var(--spacing-xxl);
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    position: relative;
+    z-index: 21;
+    pointer-events: none;
+}
+
+.top10-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none;
+    padding: 50px var(--spacing-xxl) 60px var(--spacing-xxl);
+    scroll-behavior: smooth;
+    gap: 30px;
+}
+
+.top10-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.top10-item {
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+/* The Big Stylized Number */
+.big-number {
+    position: absolute;
+    top: -35px;
+    left: 0;
+    z-index: 20;
+    pointer-events: none;
+    /* Let clicks pass through to card */
+}
+
+.rank-text {
+    font-size: 6rem;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    color: rgba(20, 20, 20, 0.4);
+    /* Semi-transparent dark fill */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+    /* Crisp white outline */
+    letter-spacing: -4px;
+    display: block;
+    line-height: 1;
+    filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.5));
+    transition: color 0.3s ease, -webkit-text-stroke 0.3s ease, transform 0.3s ease;
+}
+
+.top10-item:hover .rank-text {
+    -webkit-text-stroke: 2px var(--color-primary);
+    filter: drop-shadow(0 0 15px rgba(70, 211, 105, 0.4));
+}
+
+.top10-item:hover {
+    transform: scale(1.05);
+    z-index: 30;
+}
+
+/* Custom Hover for Top 10: Disable popup and show overlay */
+.top10-item:hover .movie-card-info {
+    display: none !important;
+}
+
+.top10-item:hover .movie-card-overlay {
+    display: flex;
+}
+
+/* Fix delay: Hide logo/title instantly on top 10 hover */
+.top10-item:hover .card-static-title-wrapper {
+    opacity: 0 !important;
+    transition: none !important;
+    display: none !important;
+}
+
+/* Position the movie card nicely */
+.top10-item .movie-card {
+    width: 200px;
+    /* Poster width */
+    height: 300px;
+    /* Poster height */
+    z-index: 10;
+    border-radius: 8px;
+    /* Rounded corners as requested */
+    overflow: hidden;
+}
+
+/* Ensure images inside cards are rounded */
+.top10-item .movie-card img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Scroll Handles (Scoped to Top10Row) */
+.top10-row .handle {
+    position: absolute;
+    top: calc(50% - 5px);
+    /* Centered on card: accounts for 50px top vs 60px bottom padding */
+    transform: translateY(-50%);
+    height: 100px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    color: white;
+    opacity: 0;
+    transition: background-color 0.2s, transform 0.2s, opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top10-row .handle:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.top10-row .handle-left {
+    left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.top10-row .handle-right {
+    right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.top10-row .arrow {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .rank-text {
+        font-size: 5rem;
+    }
+
+    .big-number {
+        top: -20px;
+    }
+
+    .top10-item .movie-card {
+        width: 140px;
+        height: 210px;
+    }
+
+    .top10-row .section-title {
+        margin-left: 16px;
+    }
+
+    .top10-scroll-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .top10-row .handle {
+        display: none !important;
+    }
+
+    /* Hide Relevance/Match score on Top 10 mobile per design request */
+    .top10-item .overlay-match,
+    .top10-item .match {
+        display: none !important;
+    }
+}
+
+/* Force hide on native apps (APK) regardless of screen width */
+.is-native .top10-item .overlay-match,
+.is-native .top10-item .match {
+    display: none !important;
+}

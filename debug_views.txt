@@ -1,0 +1,3 @@
+Total Views: 2
+Name: Filmes, Type: Folder, CollectionType: undefined
+Name: Playlists, Type: ManualPlaylistsFolder, CollectionType: playlists

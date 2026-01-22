@@ -1,0 +1,475 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #141414;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.08);
+    /* Fallback semi-transparent */
+    backdrop-filter: blur(30px) saturate(250%);
+    -webkit-backdrop-filter: blur(30px) saturate(250%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateZ(0);
+    padding: 45px 40px 30px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: visible;
+}
+
+
+.login-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.login-logo {
+    max-width: 50px;
+    height: auto;
+    object-fit: contain;
+}
+
+.input-group {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.password-group input {
+    padding-right: 50px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #737373;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 10;
+}
+
+.toggle-password:hover {
+    color: white;
+}
+
+.toggle-password:active {
+    transform: translateY(-50%) scale(1);
+}
+
+.toggle-password svg {
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    height: 50px;
+    padding: 16px 20px;
+    background: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-group input:focus {
+    background: black;
+    border-color: var(--color-primary);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.auth-button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.auth-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.error-message {
+    background-color: #e87c03;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.toggle-auth {
+    color: #737373;
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+.toggle-auth span {
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.toggle-auth span:hover {
+    text-decoration: underline;
+}
+
+/* Profile Preview */
+.profile-preview-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: -5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.4s ease-out;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.profile-preview-card.horizontal {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 12px 20px;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.preview-logo {
+    max-width: 35px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    margin-left: auto;
+}
+
+.preview-avatar-wrapper {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    background: #222;
+    border: 3px solid #00df82;
+    box-shadow: 0 0 20px rgba(0, 223, 130, 0.25);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
+}
+
+.preview-avatar-wrapper.small {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    border-width: 2px;
+}
+
+.preview-avatar-wrapper:hover {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 0 35px rgba(0, 223, 130, 0.4);
+}
+
+.preview-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.preview-avatar-badge {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    background: #00df82;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #141414;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.preview-avatar-badge.small {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+    bottom: -5px;
+    right: -5px;
+}
+
+.preview-info.text-left {
+    align-items: flex-start;
+}
+
+.preview-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.preview-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+.preview-name.small {
+    font-size: 16px;
+}
+
+.preview-label {
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 0.5px;
+    word-break: break-all;
+    max-width: 280px;
+}
+
+.preview-label.small {
+    font-size: 11px;
+    max-width: 200px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Avatar Selection Removed in favor of Preview Modal */
+
+/* Avatar Modal Selection (Restored) */
+.avatar-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.avatar-modal {
+    background: rgba(255, 255, 255, 0.08);
+    /* Fallback */
+    backdrop-filter: blur(30px) saturate(220%);
+    -webkit-backdrop-filter: blur(30px) saturate(220%);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    padding: 30px;
+    box-shadow: 0 40px 70px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transform: translateZ(0);
+}
+
+/* Firefox fallback for Login Avatar Modal */
+@-moz-document url-prefix() {
+    .avatar-modal {
+        background: rgba(25, 25, 25, 0.95);
+        backdrop-filter: none;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: white;
+}
+
+.avatars-grid-full {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px !important;
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    padding: 10px 5px !important;
+    min-width: 0;
+    width: 100%;
+}
+
+.avatar-item {
+    cursor: pointer;
+    border-radius: 12px;
+    border: 3px solid transparent;
+    transition: all 0.2s;
+    background: #222;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    min-width: 0;
+}
+
+.avatar-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.avatar-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.avatar-item.selected {
+    border-color: #00df82;
+    box-shadow: 0 0 15px rgba(0, 223, 130, 0.4);
+}
+
+/* Success Modal */
+.success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+}
+
+.success-modal {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(45px) saturate(180%);
+    -webkit-backdrop-filter: blur(45px) saturate(180%);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.success-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.success-modal h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.success-modal p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.email-hint {
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 90%;
+        min-height: auto;
+        padding: 40px 30px;
+    }
+
+    .toggle-auth span {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .avatars-grid-full {
+        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-rows: auto !important;
+        gap: 12px !important;
+        max-height: 350px !important;
+        padding: 5px !important;
+    }
+
+    .avatar-item {
+        border-radius: 10px !important;
+    }
+}
